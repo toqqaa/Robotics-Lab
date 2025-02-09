@@ -1,4 +1,3 @@
-**Author :**Toqa
 
 # **Introduction to ROS (Robot Operating System)**
 
