@@ -4,7 +4,6 @@
 
 There are two ways to install Ubuntu 20.04: **using a Virtual Machine (VM)** or  **setting up a dual-boot system** . Choose the method that best suits your needs
 
-
 ### Option 1: Install Ubuntu on a Virtual Machine
 
 A Virtual Machine (VM) allows you to run Ubuntu alongside your existing operating system without modifying your disk partitions. This is a good option if you want to test Ubuntu or ROS without affecting your current setup.
@@ -20,7 +19,6 @@ Dual-booting allows you to install Ubuntu alongside your current operating syste
 For a **detailed step-by-step guide** on dual-booting Ubuntu 20.04, refer to this resource:
 
 [Ubuntu dual-boot installation guide ](https://github.com/arab-meet/1.Robotics-Tools-Workshop/blob/master/Introduction%20to%20Linux%20and%20ubuntu%20installation/Introduction%20to%20Linux%20and%20ubuntu%20installation.md)
-
 
 ## Set Up Ubuntu for ROS Installation
 
@@ -59,18 +57,15 @@ sudo apt update
    sudo apt install curl
    curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
    ```
-
-
 3. Update the package list:
 
    ```bash
    sudo apt update
    ```
 
-
 ### Step 2: Install ROS Noetic
 
-1.  Install ROS Dependencies
+1. Install ROS Dependencies
 
 Install additional tools and dependencies for building ROS packages:
 
@@ -78,7 +73,6 @@ Install additional tools and dependencies for building ROS packages:
 sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 sudo apt install python3-catkin-tools
 ```
-
 
 ### Step 4: Initialize rosdep
 
@@ -90,13 +84,16 @@ sudo apt install python3-catkin-tools
    rosdep update
    ```
 
-
 ## Configure ROS Environment
 
 ### Step 1: Source ROS Setup Script
 
 To use ROS, you need to source the setup script in every new terminal session. Add the following line to your `~/.bashrc` file to automate this:
 
+```bash
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ## Verify ROS Installation
 

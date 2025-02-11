@@ -289,6 +289,13 @@ rosnode ping /node_name
 
 ### Understanding ROS Nodes (with Turtlesim Example)
 
+#### To Install Turtlesim Package:
+
+```bash
+sudo apt-get install ros-noetic-turtlesim
+```
+
+
 ### **1️⃣ Start ROS & Turtlesim Node**
 
 First, open a terminal and start ROS:
@@ -444,11 +451,9 @@ rostopic type /topic_name
 rostopic hz /topic_name
 ```
 
-
-
 ### Understanding ROS Topics (with Turtlesim Example)
 
-###  1️⃣ **List active topics:**
+### 1️⃣ **List active topics:**
 
 ```shell
 rostopic list
@@ -528,7 +533,6 @@ angular:
   y: 0.0
   z: 0.0" 
 ```
-
 
 ## Ros Messages
 
@@ -624,8 +628,7 @@ ros::Publisher pub = nh.advertise<message_type>(topic_name, queue_size);
 * **`topic_name`** : The name of the topic to publish to (e.g., `"chatter"`).
 * **`queue_size`** : The number of messages to buffer
 
-
-### **Example** 
+### **Example**
 
 Here’s a simple Python publisher (`talker.py`) that publishes a `String` message to the `chatter` topic:
 
@@ -695,7 +698,6 @@ ros::Subscriber sub = nh.subscribe(topic_name, queue_size, callback);
 * **`queue_size`** : The number of messages to buffer if the subscriber is slow.
 * **`callback`** : The function to call when a new message is received.
 
-
 ## **Example: Python Subscriber**
 
 ### Code: `listener.py`
@@ -727,7 +729,6 @@ if __name__ == '__main__':
     listener()
 ```
 
-
 #### **Steps to Modify `CMakeLists.txt` for Python Scripts**
 
 #### **For Python Scripts**
@@ -742,7 +743,6 @@ catkin_install_python(PROGRAMS
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 ```
-
 
 # ROS Launch Files
 
@@ -775,7 +775,6 @@ roslaunch my_package my_launch_file.launch
 * When you run a launch file, it **automatically starts `roscore`** if it’s not already running.
 * No need to manually run `roscore` in a separate terminal!
 
-
 ## **Basic Structure**
 
 A launch file is written in XML and looks like this:
@@ -785,7 +784,6 @@ A launch file is written in XML and looks like this:
     <!-- Nodes, parameters, and other elements go here -->
 </launch>
 ```
-
 
 ## **Key Elements**
 
