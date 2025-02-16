@@ -1,4 +1,3 @@
-
 # **Introduction to ROS (Robot Operating System)**
 
 ## What is ROS?
@@ -67,16 +66,13 @@ A ROS workspace is a **folder** where you keep all your ROS projects, code, and 
   cd ~/catkin_ws
   ```
 
-4. **Initialize the Workspace** :
+4. **Build Workspace :**
 
-* Run this command to set up the workspace:
+* Make sure that you install catkin
 
   ```bash
-  catkin_init_workspace
+  sudo apt install ros-noetic-catkin
   ```
-
-5. **Build the Workspace** :
-
 * Run `catkin_make` to compile the workspace:
 
   ```bash
@@ -85,7 +81,7 @@ A ROS workspace is a **folder** where you keep all your ROS projects, code, and 
 
 * [ ] This creates the `build` and `devel` folders inside your workspace.
 
-6. **Source the Workspace** :
+5. **Source the Workspace** :
 
 * To use your workspace, you need to "activate" it by running:
   ```bash
@@ -293,7 +289,6 @@ rosnode ping /node_name
 ```bash
 sudo apt-get install ros-noetic-turtlesim
 ```
-
 
 ### **1️⃣ Start ROS & Turtlesim Node**
 
@@ -543,7 +538,14 @@ angular:
 
 ##### 1️⃣ **Standard Messages (Built-in in ROS)**
 
-ROS provides a set of standard message types that are commonly used across different applications. Some of the most used standard messages include:**
+##### Message types
+
+* **`std_msgs`** : Provides basic message types like String, Int32, Float32, Bool, etc. These are used for simple communication between nodes.
+* **`sensor_msgs`** : Contains messages for sensor data such as images (for camera imagess), LaserScan (for laser range data), Imu (for inertial measurement unit data), PointCloud2 (for point cloud data), etc.
+* **`geometry_msgs`** : Defines messages for geometric data such as Point, Quaternion, Pose (position and orientation), Twist (linear and angular velocities), Transform (transformations between coordinate frames), etc.
+* **`nav_msgs`** : Includes messages related to navigation tasks such as Odometry (robot's position and velocity), Path (sequence of poses representing a path), Map (occupancy grid map), etc.
+
+Examples
 
 * **`std_msgs/String`** → Used for text messages.
 * **`std_msgs/Int32`** → Sends an integer value.
@@ -784,9 +786,7 @@ A launch file is written in XML and looks like this:
 </launch>
 ```
 
-## **Key Elements**
-
-### **1. `<node>`**
+## **1. `<node>`**
 
 Starts a ROS node.
 
