@@ -798,3 +798,40 @@ Starts a ROS node.
 * `type`: The executable name.
 * `name`: The node name.
 * `output`: Where to send output (`screen` or `log`).
+
+
+### **Running a Launch File**
+
+1. **Open a Terminal** : Open a new terminal window.
+2. **Run the Launch File** : Use the `roslaunch` command followed by the package name and the launch file name. For example, if your package is named `my_package` and your launch file is named `my_launch_file.launch`, you would run:
+
+```bash
+roslaunch my_package my_launch_file.launch
+```
+
+
+1. their output in the terminal (if `output="screen"` is used).
+
+### **Example**
+
+Suppose you have a package named `my_package` with a launch file named `my_launch_file.launch`. The launch file contains the following:
+
+```xml
+<launch>
+    <node pkg="my_package" type="talker.py" name="talker" output="screen" />
+    <node pkg="my_package" type="listener.py" name="listener" output="screen" />
+</launch>
+```
+
+
+To run this launch file, you would execute:
+
+```bash
+roslaunch my_package my_launch_file.launch
+```
+
+This command will:
+
+* Start the ROS Master.
+* Launch the `talker` and `listener` nodes as specified in the launch file.
+* Display the output of these nodes in the terminal (because `output="screen"` is used).

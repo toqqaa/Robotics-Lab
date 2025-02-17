@@ -89,7 +89,6 @@ int32 b
    chmod +x two_ints_publisher.py
    ```
 
-
 ### **Step 4: Create the Subscriber Node**
 
 1. Create subscriber node
@@ -97,8 +96,6 @@ int32 b
    ```bash
    nano scripts/two_ints_subscriber.py
    ```
-
-
 2. Add the following code:
 
 ```python
@@ -131,7 +128,6 @@ if __name__ == '__main__':
    cd ~/catkin_ws/src/custom_msg_example/scripts
    chmod +x two_ints_subscriber.py
    ```
-
 
 ### **Step 5: Edit Cmakelist.txt**
 
@@ -179,3 +175,75 @@ rosrun custom_msg_example two_ints_publisher.py
 source devel/setup.bash
  rosrun custom_msg_example two_ints_subscriber.py 
 ```
+
+### **To create Launch File**
+
+### **1. Create a `launch` Folder**
+
+Inside your `custom_msg_example` package, create a folder named `launch`:
+
+```bash
+cd ~/catkin_ws/src/custom_msg_example
+mkdir launch
+```
+
+---
+
+### **2. Create a Launch File**
+
+Inside the `launch` folder, create a new file with a `.launch` extension. For example, let’s create a file named `two_ints.launch`:
+
+```bash
+cd launch
+touch two_ints.launch
+```
+
+Now, open the file in a text editor (e.g., `nano`, `gedit`, or `vim`):
+
+```bash
+nano two_ints.launch
+```
+
+Add the following content to the file:
+
+```bash
+<launch>
+    <!-- Start the publisher node -->
+    <node pkg="custom_msg_example" type="two_ints_publisher.py" name="two_ints_publisher" output="screen" />
+
+    <!-- Start the subscriber node -->
+    <node pkg="custom_msg_example" type="two_ints_subscriber.py" name="two_ints_subscriber" output="screen" />
+</launch>
+```
+
+Run HTML
+
+Save and close the file.
+
+---
+
+### **3. Build the Workspace**
+
+After creating the launch file, rebuild your workspace to ensure everything is up-to-date:
+
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
+---
+
+### **4. Run the Launch File**
+
+Now you can run the launch file using the `roslaunch` command:
+
+```bash
+roslaunch custom_msg_example two_ints.launch
+```
+
+This will:
+
+1. Start the ROS Master (if not already running).
+2. Launch the `two_ints_publisher` and `two_ints_subscriber` nodes.
+3. Display the output of both nodes in the terminal.
