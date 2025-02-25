@@ -65,7 +65,7 @@ The base link represents the main body of the robot.
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
           <geometry>
-             <cylinder radius="0.5" length="0.25"/>
+             <cylinder radius="0.5" length="0.15"/>
           </geometry>
       </collision>
   </link>
@@ -100,7 +100,7 @@ Each wheel is defined as a separate link.
       <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
           <geometry>
-              <cylinder radius="0.1" length="0.05"/>
+              <cylinder radius="0.1" length="0.07"/>
           </geometry>
       </collision>
   </link>
@@ -128,7 +128,7 @@ Each wheel is defined as a separate link.
     <collision>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <geometry>
-           <cylinder radius="0.1" length="0.05"/>
+           <cylinder radius="0.1" length="0.07"/>
         </geometry>
     </collision>
 </link>
