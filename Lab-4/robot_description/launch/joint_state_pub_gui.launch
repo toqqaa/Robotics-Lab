@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find  robot_description)/urdf/myrobot.xacro'" />
+  
+  
+  <!-- Send robot states to tf -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <!-- Send fake joint values-->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+
+
+ 
+
+
+</launch>
