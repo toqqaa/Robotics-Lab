@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<diffrobot>
+
+    <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+        <!-- Plugin update rate in Hz -->
+        <updateRate>50</updateRate>
+
+        <!-- Name of left joint, defaults to `left_joint` -->
+        <leftJoint>left_wheel_joint</leftJoint>
+
+        <!-- Name of right joint, defaults to `right_joint` -->
+        <rightJoint>right_wheel_joint</rightJoint>
+
+        <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+        <wheelSeparation>0.5</wheelSeparation>
+
+        <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+        <wheelDiameter>0.4</wheelDiameter>
+
+        <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+        <wheelAcceleration>1.0</wheelAcceleration>
+
+        <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+        <wheelTorque>20</wheelTorque>
+
+        <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+        <commandTopic>cmd_vel</commandTopic>
+
+        <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+        <odometryTopic>odom</odometryTopic>
+
+        <!-- Odometry frame, defaults to `odom` -->
+        <odometryFrame>odom</odometryFrame>
+
+        <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+        <robotBaseFrame>robot_footprint</robotBaseFrame>
+
+        <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+        <odometrySource>1</odometrySource>
+
+        <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+        <publishWheelTF>false</publishWheelTF>
+
+        <!-- Set to true to publish transforms for the odometry, defaults to true -->
+        <publishOdom>true</publishOdom>
+
+        <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+        <publishWheelJointState>true</publishWheelJointState>
+
+        <!-- Set to true to swap right and left wheels, defaults to true -->
+        <legacyMode>false</legacyMode>
+    </plugin>
+    </gazebo>
+
+
+      <gazebo reference="laser_data_link">
+		<sensor type="ray" name="rplidar">
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>false</visualize>
+			<update_rate>10</update_rate>
+			<ray>
+				<scan>
+					<horizontal>
+						<samples>720</samples>
+						<resolution>1</resolution>
+						<min_angle>0</min_angle>
+						<max_angle>6.28319</max_angle>
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.15</min>
+					<max>12.0</max>
+					<resolution>0.01</resolution>
+				</range>
+        
+				<noise>
+					<type>gaussian</type>
+					<mean>0.0</mean>
+					<stddev>0.01</stddev>
+				</noise>
+			</ray>
+			<plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+				<topicName>/scan</topicName>
+				<frameName>laser_data_link</frameName>
+			</plugin>
+		</sensor>
+	</gazebo>
+    
+  	<gazebo reference="base_link">
+	  	<material>Gazebo/Orange</material>
+	</gazebo>
+
+  <gazebo reference="cylinder_link">
+	  	<material>Gazebo/red</material>
+	</gazebo>
+
+
+    <gazebo reference="left_wheel">
+	  	<material>Gazebo/Black</material>
+	</gazebo>
+
+    <gazebo reference="right_wheel">
+	  	<material>Gazebo/Black</material>
+	</gazebo>
+
+    <gazebo reference="front_caster">
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <mu1>0.3</mu1>
+        <mu2>0.3</mu2>
+	  	<material>Gazebo/Black</material>
+	</gazebo> 
+       
+    <gazebo reference="back_caster">
+        <kp value="10000000.0"/>
+        <kd value="1.0"/>
+        <mu1>0.3</mu1>
+        <mu2>0.3</mu2>
+	  	<material>Gazebo/Black</material>
+	</gazebo>
+
+</diffrobot>
