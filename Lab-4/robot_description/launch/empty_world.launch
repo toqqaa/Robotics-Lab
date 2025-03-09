@@ -37,7 +37,6 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) "/>    
 
 
-rosrun tf static_transform_publisher 0.5 0 0 0 0 0 base_link camera_frame 100
 
 
 
